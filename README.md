@@ -7,7 +7,7 @@ Thread を使いやすく
 ```Java
 MultiProcess multiProcess = new MultiProcess();
 
-// 処理するスレッドを追加
+// 処理するプロセスを追加
 multiProcess.addProcess(() -> {
 });
 
