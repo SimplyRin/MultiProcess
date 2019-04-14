@@ -50,7 +50,11 @@ public class MultiProcess {
 		tempRunnable.addAll(this.runnables);
 		for (Runnable runnable : tempRunnable) {
 			this.executorService.execute(() -> {
-				runnable.run();
+				try {
+					runnable.run();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 				this.remove(0);
 
 				// System.out.println("Size: " + this.runnables.size());
