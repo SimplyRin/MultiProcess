@@ -54,19 +54,23 @@ public class MultiProcess {
 				this.remove(0);
 
 				// System.out.println("Size: " + this.runnables.size());
-				if (this.runnables.size() == 0) {
+				if (this.getRunnablesSize() == 0) {
 					this.finish();
 				}
 			});
 		}
 
-		if (this.runnables.size() == 0) {
+		if (this.getRunnablesSize() == 0) {
 			this.finish();
 		}
 	}
 
 	private synchronized void remove(int integer) {
 		this.runnables.remove(integer);
+	}
+
+	private synchronized int getRunnablesSize() {
+		return this.runnables.size();
 	}
 
 	public void setFinishedTask(Runnable runnable) {
